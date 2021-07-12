@@ -1,13 +1,17 @@
+
 <template>
 
     <div>
 
         <h2>main</h2>
 
-        <ul>
+        <ul v-for="lista in listFilm" :key="lista.id">
 
-            <li></li>
-            
+            <li>{{lista.title}}</li>
+            <li>{{lista.original_title}}</li>
+            <li>{{lista.original_language}}</li>
+            <li>{{lista.vote_average}}</li>
+
         </ul>
 
     </div>
@@ -47,7 +51,9 @@
 
                 axios.get(this.apiURL).then(risposta =>{
 
-                    console.log(risposta.data.results);
+                    this.listFilm = risposta.data.results;
+
+                    console.log(this.listFilm);
                 
                 });
 
