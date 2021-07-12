@@ -1,14 +1,64 @@
 <template>
-  <div>
-      <h2>main</h2>
-  </div>
+
+    <div>
+
+        <h2>main</h2>
+
+        <ul>
+
+            <li></li>
+            
+        </ul>
+
+    </div>
+
 </template>
 
-<script>
-export default {
 
-}
+<script>
+
+    import axios from 'axios';
+
+    export default {
+
+        name: 'main',
+
+        data() {
+
+            return {
+
+                apiURL: 'https://api.themoviedb.org/3/search/movie?query=matrix&api_key=a90928149c825de62be6ceef5ce2f3af&language=it-IT',
+
+                listFilm: []
+
+            }
+
+        },
+
+        created() {
+
+            this.getListFilm();
+
+        },
+
+        methods: {
+
+            getListFilm() {
+
+                axios.get(this.apiURL).then(risposta =>{
+
+                    console.log(risposta.data.results);
+                
+                });
+
+            }
+
+        }
+
+    }
+
 </script>
+
 
 <style scoped lang="scss">
 
