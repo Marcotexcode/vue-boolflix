@@ -6,13 +6,13 @@
 
             <div class="input">
 
-                <input type="text" placeholder="Scegli il film" v-model="inputText">
+                <input type="text" placeholder="Scegli il film" v-model.trim="inputText">
 
             </div>
 
             <div class="button">
 
-                <button type="submit" @click.prevent="$emit('search', inputText)">Invio</button>
+                <button type="submit" @click.prevent="$emit('search', inputText)" @click="reset">Invio</button>
 
             </div>
 
@@ -37,7 +37,17 @@
 
             }
 
+        },
+
+        methods: {
+            
+            reset() {
+                this.inputText = ''
+            }
+
         }
+
+        
         
     }
 

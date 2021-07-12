@@ -53,7 +53,7 @@
         created() {
 
             this.getListFilm();
-
+            
         },
 
         computed: {
@@ -63,7 +63,7 @@
                 return this.listFilm.filter(element => {
 
                     return element.title.toLowerCase().includes(this.searchText.toLowerCase())
-
+                    
                 });
                 
             }
@@ -78,19 +78,20 @@
 
                     this.listFilm = risposta.data.results;
 
-                    console.log(this.listFilm);
-                
+                  //  console.log(this.listFilm);
+                    
                 });
-
+                
             },
 
             searchFilm(searchInput) {
-
+                
                 this.searchText = searchInput;
-                console.log(this.searchText);
+              //  console.log(this.searchText);
+              
+            },
 
-            }
-
+            
 
         }
 
