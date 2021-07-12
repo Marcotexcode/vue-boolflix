@@ -38,6 +38,17 @@
             }
 
         },
+
+        // Svuotare l'input al click
+        methods: {
+            
+            reset() {
+
+                this.inputText = ''
+                
+            }
+
+        }
         
     }
 
