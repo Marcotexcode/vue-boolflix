@@ -91,6 +91,12 @@
               
             },
 
+            // Svuotare l'input al click
+            reset() {
+
+                this.inputText = ''
+                
+            }
             
 
         }

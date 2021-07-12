@@ -38,16 +38,6 @@
             }
 
         },
-
-        methods: {
-            
-            reset() {
-                this.inputText = ''
-            }
-
-        }
-
-        
         
     }
 
