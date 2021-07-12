@@ -1,6 +1,6 @@
 <template>
   <div>
-      <h2>BoolFlixx</h2>
+      <h2>Header</h2>
   </div>
 </template>
 

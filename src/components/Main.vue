@@ -5,12 +5,14 @@
 
         <h2>main</h2>
 
-        <ul v-for="lista in listFilm" :key="lista.id">
+        <Search @search="searchFilm"/>
 
-            <li>{{lista.title}}</li>
-            <li>{{lista.original_title}}</li>
-            <li>{{lista.original_language}}</li>
-            <li>{{lista.vote_average}}</li>
+        <ul v-for="lista in filterFilm" :key="lista.id">
+
+            <li>Titolo: {{lista.title}}</li>
+            <li>Titolo Originale: {{lista.original_title}}</li>
+            <li>Lingua: {{lista.original_language}}</li>
+            <li>Voto: {{lista.vote_average}}</li>
 
         </ul>
 
@@ -21,11 +23,18 @@
 
 <script>
 
+    import Search from '../components/Search.vue';
     import axios from 'axios';
 
     export default {
 
         name: 'main',
+
+        components: {
+
+            Search
+
+        },
 
         data() {
 
@@ -33,7 +42,9 @@
 
                 apiURL: 'https://api.themoviedb.org/3/search/movie?query=matrix&api_key=a90928149c825de62be6ceef5ce2f3af&language=it-IT',
 
-                listFilm: []
+                listFilm: [],
+
+                searchText: ''
 
             }
 
@@ -42,6 +53,20 @@
         created() {
 
             this.getListFilm();
+
+        },
+
+        computed: {
+
+            filterFilm() {
+
+                return this.listFilm.filter(element => {
+
+                    return element.title.toLowerCase().includes(this.searchText.toLowerCase())
+
+                });
+                
+            }
 
         },
 
@@ -57,7 +82,15 @@
                 
                 });
 
+            },
+
+            searchFilm(searchInput) {
+
+                this.searchText = searchInput;
+                console.log(this.searchText);
+
             }
+
 
         }
 
