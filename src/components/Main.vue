@@ -13,7 +13,7 @@
 
             <li>Titolo: {{lista.title}}</li>
             <li>Titolo Originale: {{lista.original_title}}</li>
-            <li>Lingua: {{lista.original_language}}</li>
+            <li>Lingua: <img :src="flag" width='15px'></li>
             <li>Voto: {{lista.vote_average}}</li>
 
         </ul>
@@ -61,6 +61,24 @@
 
                 listSerie: [],
 
+                flag: '',
+
+                listFlags: [ 
+                    
+                    {
+                
+                        en:'@/assets/img/en.png'
+                        
+                    },
+
+                    {
+                        
+                        ja:'@/assets/img/ja.png'
+
+                    }
+
+                ],
+                
                 searchText: ''
 
             }
@@ -70,6 +88,10 @@
         created() {
 
             this.getListFilm();
+
+            console.log('url: ' + this.flag);
+
+            //console.log(this.listFlags);
 
             this.getListSerie();
             
@@ -95,7 +117,31 @@
                     
                 });
 
-            }
+            },
+
+            // filtFlags() {
+
+            //     return this.listFilm.filter(element => {
+
+            //     if(this.element.original_language.includes(this.listFlags)) {
+
+            //         return element.original_language = this.listFlags
+
+            //     }
+                
+            //     });
+
+
+            // }
+
+            // filterFlags() {
+
+            //     return this.listFilm.filter(element => {
+                
+            //     return this.element.original_language.includes(this.listFlags)
+
+            //     })
+            // }
 
         },
 
@@ -133,6 +179,43 @@
               
             },
 
+
+            // PROVA 1
+
+            // search() {
+
+            //     this.listFilm.filter((element) => {
+                    
+            //         if (this.element.original_language.includes(this.listFlags)) {
+
+            //             element.original_language = 'ciao';
+
+            //         } else {
+
+            //             element.original_language = 'hello';
+
+            //         }
+
+            //     });
+           
+            // }   
+            
+
+            // PROVA 2
+
+            // flag() {
+
+            //     if (this.listFilm.filter.original_language = en ) {
+
+            //         flag = '@/assets/img/en.png'
+
+            //     }
+
+            //     return
+
+            // }
+
+            
         }
 
     }
