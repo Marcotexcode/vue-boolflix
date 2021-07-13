@@ -8,6 +8,7 @@
         <Search @search="searchFilm"/>
 
         <h2>FILMS</h2>
+
         <ul v-for="lista in filterFilm" :key="lista.id">
 
             <li>Titolo: {{lista.title}}</li>
@@ -19,14 +20,14 @@
 
         <h2>SERIE</h2>
 
-        <!-- <ul v-for="lista in filterSerie" :key="lista.id">
+        <ul v-for="lista in filterSerie" :key="lista.id">
 
             <li>Titolo: {{lista.name}}</li>
             <li>Titolo Originale: {{lista.original_name}}</li>
             <li>Lingua: {{lista.original_language}}</li>
             <li>Voto: {{lista.vote_average}}</li>
 
-        </ul> -->
+        </ul> 
 
     </div>
 
@@ -54,9 +55,11 @@
 
                 apiFilmURL: 'https://api.themoviedb.org/3/search/movie?query=matrix&api_key=a90928149c825de62be6ceef5ce2f3af&language=it-IT',
 
-                // apiSerieURL: 'https://api.themoviedb.org/3/search/tv?api_key=a90928149c825de62be6ceef5ce2f3af&language=it_IT&query=a',
+                apiSerieURL: 'https://api.themoviedb.org/3/search/tv?api_key=a90928149c825de62be6ceef5ce2f3af&language=it_IT&query=a',
 
                 listFilm: [],
+
+                listSerie: [],
 
                 searchText: ''
 
@@ -68,7 +71,7 @@
 
             this.getListFilm();
 
-           // this.getListSerie();
+            this.getListSerie();
             
         },
 
@@ -84,16 +87,15 @@
                 
             },
 
-            // filterSerie() {
+            filterSerie() {
 
-            //     return this.listFilm.filter(element => {
+                return this.listSerie.filter(element => {
 
-            //         return element.name.toLowerCase().includes(this.searchText.toLowerCase())
+                    return element.name.toLowerCase().includes(this.searchText.toLowerCase())
                     
-            //     });
+                });
 
-            // }
-
+            }
 
         },
 
@@ -105,23 +107,23 @@
 
                     this.listFilm = risposta.data.results;
 
-                    // console.log(this.listFilm);
+                    console.log(this.listFilm);
                     
                 });
                 
             },
 
-            // getListSerie() {
+            getListSerie() {
 
-            //     axios.get(this.apiSerieURL).then(risposta => {
+                axios.get(this.apiSerieURL).then(risposta => {
 
-            //         this.listFilm = risposta.data.results;
+                    this.listSerie = risposta.data.results;
 
-            //          console.log(this.listFilm);
+                     console.log(this.listSerie);
                     
-            //     });
+                });
                 
-            // },
+            },
 
             searchFilm(searchInput) {
                 
