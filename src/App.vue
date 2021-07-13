@@ -2,8 +2,6 @@
 
   <div id="app">
 
-    <Header/> 
-
     <Main/>
 
   </div>
@@ -13,7 +11,6 @@
 
 <script>
 
-  import Header from './components/Header.vue'
   import Main from './components/Main.vue'
 
   export default {
@@ -22,7 +19,6 @@
 
     components: {
 
-      Header,
       Main
 
     }

@@ -1,19 +1,23 @@
 
 <template>
 
-    <div>
+    <div class="container">
 
-        <h2>main</h2>
+        <header>
 
-        <Search @search="searchFilm"/>
+            <h2>BoolFlixx</h2>
 
+            <Search @search="searchFilm"/>
+
+        </header>
+        
         <h2>FILMS</h2>
 
         <ul v-for="lista in filterFilm" :key="lista.id">
 
             <li>Titolo: {{lista.title}}</li>
             <li>Titolo Originale: {{lista.original_title}}</li>
-            <li>Lingua: <img :src="flag" width='15px'></li>
+            <li>Lingua: <img :src="'@/assets/img/' + lista.original_language + '.png'" alt=""></li>
             <li>Voto: {{lista.vote_average}}</li>
 
         </ul>
@@ -24,7 +28,7 @@
 
             <li>Titolo: {{lista.name}}</li>
             <li>Titolo Originale: {{lista.original_name}}</li>
-            <li>Lingua: {{lista.original_language}}</li>
+            <li>Lingua:<img src="@/assets/img/en.png" :alt="lista.original_language">{{lista.original_language}}</li>
             <li>Voto: {{lista.vote_average}}</li>
 
         </ul> 
@@ -32,6 +36,7 @@
     </div>
 
 </template>
+
 
 
 <script>
@@ -60,24 +65,6 @@
                 listFilm: [],
 
                 listSerie: [],
-
-                flag: '',
-
-                listFlags: [ 
-                    
-                    {
-                
-                        en:'@/assets/img/en.png'
-                        
-                    },
-
-                    {
-                        
-                        ja:'@/assets/img/ja.png'
-
-                    }
-
-                ],
                 
                 searchText: ''
 
@@ -88,10 +75,6 @@
         created() {
 
             this.getListFilm();
-
-            console.log('url: ' + this.flag);
-
-            //console.log(this.listFlags);
 
             this.getListSerie();
             
@@ -119,30 +102,6 @@
 
             },
 
-            // filtFlags() {
-
-            //     return this.listFilm.filter(element => {
-
-            //     if(this.element.original_language.includes(this.listFlags)) {
-
-            //         return element.original_language = this.listFlags
-
-            //     }
-                
-            //     });
-
-
-            // }
-
-            // filterFlags() {
-
-            //     return this.listFilm.filter(element => {
-                
-            //     return this.element.original_language.includes(this.listFlags)
-
-            //     })
-            // }
-
         },
 
         methods: {
@@ -152,8 +111,6 @@
                 axios.get(this.apiFilmURL).then(risposta => {
 
                     this.listFilm = risposta.data.results;
-
-                    console.log(this.listFilm);
                     
                 });
                 
@@ -164,8 +121,6 @@
                 axios.get(this.apiSerieURL).then(risposta => {
 
                     this.listSerie = risposta.data.results;
-
-                     console.log(this.listSerie);
                     
                 });
                 
@@ -175,46 +130,7 @@
                 
                 this.searchText = searchInput;
 
-                // console.log(this.searchText);
-              
             },
-
-
-            // PROVA 1
-
-            // search() {
-
-            //     this.listFilm.filter((element) => {
-                    
-            //         if (this.element.original_language.includes(this.listFlags)) {
-
-            //             element.original_language = 'ciao';
-
-            //         } else {
-
-            //             element.original_language = 'hello';
-
-            //         }
-
-            //     });
-           
-            // }   
-            
-
-            // PROVA 2
-
-            // flag() {
-
-            //     if (this.listFilm.filter.original_language = en ) {
-
-            //         flag = '@/assets/img/en.png'
-
-            //     }
-
-            //     return
-
-            // }
-
             
         }
 
@@ -224,5 +140,7 @@
 
 
 <style scoped lang="scss">
+
+    
 
 </style>
