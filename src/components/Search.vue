@@ -63,7 +63,6 @@
         .input {
             margin: 0px 10px;
         }
-    }
-    
+    } 
 
 </style>

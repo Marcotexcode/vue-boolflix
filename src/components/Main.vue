@@ -7,6 +7,7 @@
 
         <Search @search="searchFilm"/>
 
+        <h2>FILMS</h2>
         <ul v-for="lista in filterFilm" :key="lista.id">
 
             <li>Titolo: {{lista.title}}</li>
@@ -15,6 +16,17 @@
             <li>Voto: {{lista.vote_average}}</li>
 
         </ul>
+
+        <h2>SERIE</h2>
+
+        <!-- <ul v-for="lista in filterSerie" :key="lista.id">
+
+            <li>Titolo: {{lista.name}}</li>
+            <li>Titolo Originale: {{lista.original_name}}</li>
+            <li>Lingua: {{lista.original_language}}</li>
+            <li>Voto: {{lista.vote_average}}</li>
+
+        </ul> -->
 
     </div>
 
@@ -40,7 +52,9 @@
 
             return {
 
-                apiURL: 'https://api.themoviedb.org/3/search/movie?query=matrix&api_key=a90928149c825de62be6ceef5ce2f3af&language=it-IT',
+                apiFilmURL: 'https://api.themoviedb.org/3/search/movie?query=matrix&api_key=a90928149c825de62be6ceef5ce2f3af&language=it-IT',
+
+                // apiSerieURL: 'https://api.themoviedb.org/3/search/tv?api_key=a90928149c825de62be6ceef5ce2f3af&language=it_IT&query=a',
 
                 listFilm: [],
 
@@ -53,6 +67,8 @@
         created() {
 
             this.getListFilm();
+
+           // this.getListSerie();
             
         },
 
@@ -66,7 +82,18 @@
                     
                 });
                 
-            }
+            },
+
+            // filterSerie() {
+
+            //     return this.listFilm.filter(element => {
+
+            //         return element.name.toLowerCase().includes(this.searchText.toLowerCase())
+                    
+            //     });
+
+            // }
+
 
         },
 
@@ -74,23 +101,36 @@
 
             getListFilm() {
 
-                axios.get(this.apiURL).then(risposta =>{
+                axios.get(this.apiFilmURL).then(risposta => {
 
                     this.listFilm = risposta.data.results;
 
-                  //  console.log(this.listFilm);
+                    // console.log(this.listFilm);
                     
                 });
                 
             },
 
+            // getListSerie() {
+
+            //     axios.get(this.apiSerieURL).then(risposta => {
+
+            //         this.listFilm = risposta.data.results;
+
+            //          console.log(this.listFilm);
+                    
+            //     });
+                
+            // },
+
             searchFilm(searchInput) {
                 
                 this.searchText = searchInput;
-              //  console.log(this.searchText);
+
+                // console.log(this.searchText);
               
             },
-            
+
         }
 
     }
