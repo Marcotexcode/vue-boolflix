@@ -33,7 +33,7 @@
                 
             </li>
 
-            <li>Voto: {{info.vote_average}}</li>
+            <li><star-rating :rating="info.vote_average" :star-size="20"  :read-only="true" :increment="0.01" /> {{info.vote_average}}</li>
 
         </ul>
 
@@ -44,9 +44,17 @@
 
 <script>
 
+    import StarRating from 'vue-star-rating';
+
     export default {
 
         name: 'BoxFilm',
+
+        components: {
+
+            StarRating
+
+        },
 
         props: ['info'],
 
@@ -57,6 +65,18 @@
                 listFlags: ['en', 'ja']
 
             }
+
+        },
+
+        methods: {
+
+            // functionInt(vote) {
+
+
+            // }
+
+            
+            
 
         }
         
