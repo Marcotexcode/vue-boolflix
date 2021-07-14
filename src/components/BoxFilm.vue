@@ -2,8 +2,11 @@
 
     <div class="container">
 
+
+
         <ul>
-            
+
+            <li>poster: <img :src="'https://image.tmdb.org/t/p/w154' + info.poster_path" :alt="info.original_language"></li>
             <li>Titolo: {{info.title == null ? info.name : info.title}}</li>
             <li>Titolo originale: {{info.original_title == null ? info.original_name : info.original_title}} </li>
             
@@ -57,7 +60,7 @@
         ul {
             li {
                 img {
-                    width: 15px;
+                    width: 35px;
                 }
             }
         }
