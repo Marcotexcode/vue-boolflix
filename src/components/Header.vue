@@ -1,25 +1,21 @@
 
 <template>
 
-    <div class="container">
+    <div class="container-head">
+        
+        <div class="col12 p-3 d-flex justify-content-between">
 
-        <h2>Boolflix</h2>
+            <img src="https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png" alt="">
 
-        <form>
-
-            <div class="input">
+            <form>
 
                 <input type="text" placeholder="Scegli il film" v-model.trim="inputText">
 
-            </div>
-
-            <div class="button">
-
                 <button type="submit" @click.prevent="$emit('search', inputText)" @click="reset">Invio</button>
 
-            </div>
+            </form>
 
-        </form>
+        </div>        
         
     </div>
 
@@ -57,6 +53,38 @@
 </script>
 
 
-<style>
+<style scoped lang="scss">
+
+
+    @import '../style/variabili.scss';
+    @import '../style/mixins.scss';
+
+    .container-head{
+
+        width: 100%;
+        background-color: rgb(58, 50, 50);
+
+        img {
+            width: 100px;
+        }
+
+        form {
+            display: flex;
+
+            
+
+            button {
+
+                @include button (black);
+
+            }
+
+            input {
+                @include input (black);
+            }
+            
+
+        }
+    }
 
 </style>

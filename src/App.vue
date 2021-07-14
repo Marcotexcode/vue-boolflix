@@ -1,7 +1,7 @@
 <template>
 
   <div id="app">
-    
+
     <Header @search="ricercaFilm"/>
 
     <Main :films="listFilm" :series="listSerie"/>
@@ -95,5 +95,6 @@
 
 <style lang="scss">
 
+  @import '../src/style/commons.scss';
 
 </style>

@@ -1,20 +1,18 @@
 <template>
 
-    <div class="container">
-
-
+    <div class="container-box">
 
         <ul>
 
             <li v-if="info.poster_path == null ">
 
-                poster: <img src="@/assets/img/images.png" alt="">
+                <img class="nofound" src="@/assets/img/images.png" alt="">
 
             </li>
 
              <li v-else>
 
-                poster: <img :src="'https://image.tmdb.org/t/p/w154' + info.poster_path" :alt="info.original_language">
+                <img :src="'https://image.tmdb.org/t/p/w154' + info.poster_path" :alt="info.original_language">
                 
             </li>
 
@@ -33,7 +31,7 @@
                 
             </li>
 
-            <li><star-rating :rating="info.vote_average" :star-size="20"  :read-only="true" :increment="0.01" /> {{info.vote_average}}</li>
+            <li><star-rating :rating="info.vote_average" :star-size="20"  :read-only="true" :increment="0.01" /></li>
 
         </ul>
 
@@ -70,14 +68,6 @@
 
         methods: {
 
-            // functionInt(vote) {
-
-
-            // }
-
-            
-            
-
         }
         
     }
@@ -87,9 +77,28 @@
 
 <style scoped lang="scss">
     
-    .container {
+    .container-box {
+        width: 250px;
+        margin-bottom: 20px;
+        
         ul {
+            display: inline-block;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(73, 73, 73);
+            color: white;
+
             li {
+
+                .nofound {
+
+                    width: 154px;
+
+                }
+                list-style: none;
+
                 .flag {
                     width: 15px;
                 }
