@@ -60,7 +60,7 @@
     @import '../style/mixins.scss';
 
     .container-head{
-
+        
         width: 100%;
         background-color: rgb(58, 50, 50);
 
@@ -81,6 +81,11 @@
 
             input {
                 @include input (black);
+            }
+
+            input:focus {
+                border: none;
+             
             }
             
 

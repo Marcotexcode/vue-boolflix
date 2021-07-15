@@ -6,11 +6,10 @@
 
         <div class="row justify-content-between p-5">
            
-            <BoxFilm v-for="film in films" :key="film.id" :info="film"/>           
+            <BoxFilm v-for="film in films" :key="film.id" :info="film"/>          
 
         </div>
         
-
         <h2>SERIE</h2>
         
         <div class="row justify-content-between p-5">
@@ -43,9 +42,10 @@
             films: Array,
             series: Array
 
-        }
+        },
 
     }
+
 
 </script>
 
