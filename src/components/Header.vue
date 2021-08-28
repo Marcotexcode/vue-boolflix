@@ -27,13 +27,20 @@
 
             <form>
 
-                <input :class="{ active: isActive }" v-on:keyup="$emit('search', inputText)" class="search-text" type="text" placeholder="Scegli il film" v-model.trim="inputText">
+                <div @click="isActive = !isActive" :class="{ active: isActive }" class="btn2">
+
+                    <i class="search-btn fas fa-times"></i>
+
+                </div>
+
+                <input v-on:keyup="$emit('search', inputText)" class="search-text" :class="{ active: isActive }" type="text" placeholder="Scegli il film" v-model.trim="inputText">
 
                 <div @click="isActive = !isActive" class="btn">
 
-                    <i  class="search-btn fas fa-search"></i>
+                    <i class="search-btn fas fa-search"></i>
 
                 </div>
+                
                 
 
 
@@ -58,7 +65,7 @@
 
             
             return {
-                isActive: false,
+                isActive: true,
                 inputText: ''
 
             }
@@ -91,7 +98,8 @@
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        background-color: rgb(58, 50, 50);
+        
+        background-color: rgb(20, 20, 20);;
         padding: 10px 20px;
 
         .logo-menu {
@@ -131,11 +139,21 @@
 
             .btn{
                 margin: 0px 20px;
-                color: black;
+                color: white;
                 position: absolute;
                 right: 0;
                 z-index: 10;
+                font-size: 20px;
+                cursor: pointer;
+            }
 
+            .btn2{
+                cursor: pointer;
+                margin: 0px 10px;
+                color: white;
+                left: 0;
+                z-index: 10;
+                font-size: 20px;
             }
 
         }
@@ -149,11 +167,21 @@
                 @include button (black);
             }
 
-            .active {
-                opacity: 1;
+            .search-text {
+                display: block;
                 @include input (black);
                 padding: 10px;
                 border-radius: 20px;
+                transition: all 0.5s;
+                background-color: rgba(0, 0, 0, 0.753);
+                color: white;
+                outline: none;
+            }
+
+            .active {
+                padding: 0;
+                width: 0;
+                opacity: 0;
             }
 
             input:focus {
