@@ -17,6 +17,7 @@
             </div>
             
             <div class="list-info">
+
             <li> <strong>Titolo: </strong> {{info.title == null ? info.name : info.title}}</li>
             <li> <strong>Titolo originale:</strong> {{info.original_title == null ? info.original_name : info.original_title}} </li>
             
@@ -33,7 +34,9 @@
             </li>
 
             <li><star-rating :rating="info.vote_average" :star-size="20"  :read-only="true" :increment="0.01" /></li>
+            
             </div>
+        
         </ul>
 
     </div>
@@ -66,10 +69,6 @@
             }
 
         },
-
-        methods: {
-
-        }
         
     }
 
@@ -94,7 +93,6 @@
             width: 100%;
                 height: 100%;
                 
-
             img {
                 width: 100%;
                 height: 100%;

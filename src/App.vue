@@ -67,22 +67,6 @@
 
           console.log(this.listFilm);
         }));
-
-
-
-        // axios.get(this.apiFilmURL, {
-
-        // //   params: {
-
-        // //     query: text
-
-        // //   }
-
-        // }).then(risposta => {
-
-        //   this.listFilm = risposta.data.results;
-                    
-        // });
   
       },
 
