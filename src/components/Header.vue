@@ -27,12 +27,17 @@
 
             <form>
 
-                <input type="text" placeholder="Scegli il film" v-model.trim="inputText">
+                <input :class="{ active: isActive }" v-on:keyup="$emit('search', inputText)" class="search-text" type="text" placeholder="Scegli il film" v-model.trim="inputText">
 
-                <i class="search fas fa-search"></i>
+                <div @click="isActive = !isActive" class="btn">
+
+                    <i  class="search-btn fas fa-search"></i>
+
+                </div>
+                
 
 
-                <button type="submit" @click.prevent="$emit('search', inputText)" @click="reset">Invio</button>
+                <!-- <button type="submit" @click.prevent="$emit('search', inputText)" @click="reset">Invio</button> -->
 
             </form>
 
@@ -51,8 +56,9 @@
 
         data() {
 
+            
             return {
-
+                isActive: false,
                 inputText: ''
 
             }
@@ -123,15 +129,19 @@
 
         .container-form {
 
-            .search{
+            .btn{
                 margin: 0px 20px;
-                color: $white;
+                color: black;
+                position: absolute;
+                right: 0;
+                z-index: 10;
 
             }
 
         }
 
         form {
+            position: relative;
             display: flex;
             align-items: center;
 
@@ -139,9 +149,11 @@
                 @include button (black);
             }
 
-            input {
+            .active {
+                opacity: 1;
                 @include input (black);
                 padding: 10px;
+                border-radius: 20px;
             }
 
             input:focus {
