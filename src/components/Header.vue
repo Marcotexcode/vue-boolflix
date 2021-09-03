@@ -29,15 +29,15 @@
 
                 <div @click="isActive = !isActive" :class="(isActive === true) ? 'active' : 'not-active'" class="btn2">
 
-                    <i class="search-btn fas fa-times"></i>
+                    <i class="search-btn fas fa-search"></i>
 
                 </div>
 
-                <input v-on:keyup="$emit('search', inputText)" class="" :class="(isActive === false) ? 'active-text' : 'search-text'" type="text" placeholder="Scegli il film" v-model.trim="inputText">
+                <input v-on:keyup="$emit('search', inputText)" :class="(isActive === true) ? 'active-text' : 'search-text'" type="text" placeholder="Scegli il film" v-model.trim="inputText">
 
                 <div @click="isActive = !isActive" :class="(isActive === true) ? 'not-active' : 'active'" class="btn">
 
-                    <i class="search-btn fas fa-search"></i>
+                    <i class="search-btn fas fa-times"></i>
 
                 </div>
                 
