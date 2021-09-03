@@ -2,7 +2,7 @@
 
     <div class="container-fluid">
 
-        <h2>FILM</h2>
+        <h2>Film</h2>
 
         <div class="row justify-content-between p-5">
            
@@ -10,11 +10,11 @@
 
         </div>
         
-        <h2>SERIE</h2>
+        <h2>Serie</h2>
         
         <div class="row justify-content-between p-5">
             
-            <BoxFilm v-for="serie in series" :key="serie.id" :info="serie"/>
+            <BoxSerie v-for="serie in series" :key="serie.id" :info="serie"/>
             
         </div>
 
@@ -26,6 +26,8 @@
 <script>
 
     import BoxFilm from '@/components/BoxFilm.vue';
+    import BoxSerie from '@/components/BoxSerie.vue';
+
 
     export default {
 
@@ -33,7 +35,8 @@
 
         components: {
 
-            BoxFilm,           
+            BoxFilm,
+            BoxSerie           
 
         },
 

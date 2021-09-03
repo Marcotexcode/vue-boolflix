@@ -34,12 +34,24 @@
         apiFilmURL: 'https://api.themoviedb.org/3/search/movie?api_key=a90928149c825de62be6ceef5ce2f3af&language=it-IT',
         apiSerieURL: 'https://api.themoviedb.org/3/search/tv?api_key=a90928149c825de62be6ceef5ce2f3af&language=it-IT',
 
+        apiFilmBase:'https://api.themoviedb.org/3/movie/now_playing?api_key=a90928149c825de62be6ceef5ce2f3af&language=en-US&page=1',
+        apiSerieBase:'https://api.themoviedb.org/3/tv/airing_today?api_key=a90928149c825de62be6ceef5ce2f3af&language=en-US&page=1',
+
         listFilm: [],
         listSerie: []
 
       }
 
     },
+
+    created() {
+
+            this.getListFilms();
+            this.getListSerie();
+
+
+
+        },
 
     methods: {
 
@@ -65,10 +77,31 @@
           this.listFilm = responseMovie.data.results;
           this.listSerie = responseSerie.data.results;
 
-          console.log(this.listFilm);
         }));
-  
+
       },
+
+      getListFilms() {
+
+       axios.get(this.apiFilmBase).then(response => {
+
+          this.listFilm = response.data.results;
+
+
+        })
+
+      },
+
+      getListSerie() {
+
+       axios.get(this.apiSerieBase).then(response => {
+
+          this.listSerie = response.data.results;
+
+
+        })
+        
+      }
 
     }
 

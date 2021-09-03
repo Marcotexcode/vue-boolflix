@@ -46,12 +46,11 @@
 
 <script>
 
-    
     import StarRating from 'vue-star-rating';
 
     export default {
 
-        name: 'BoxFilm',
+        name: 'BoxSerie',
 
         components: {
 

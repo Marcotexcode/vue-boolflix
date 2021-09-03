@@ -27,25 +27,20 @@
 
             <form>
 
-                <div @click="isActive = !isActive" :class="{ active: isActive }" class="btn2">
+                <div @click="isActive = !isActive" :class="(isActive === true) ? 'active' : 'not-active'" class="btn2">
 
                     <i class="search-btn fas fa-times"></i>
 
                 </div>
 
-                <input v-on:keyup="$emit('search', inputText)" class="search-text" :class="{ active: isActive }" type="text" placeholder="Scegli il film" v-model.trim="inputText">
+                <input v-on:keyup="$emit('search', inputText)" class="" :class="(isActive === false) ? 'active-text' : 'search-text'" type="text" placeholder="Scegli il film" v-model.trim="inputText">
 
-                <div @click="isActive = !isActive" class="btn">
+                <div @click="isActive = !isActive" :class="(isActive === true) ? 'not-active' : 'active'" class="btn">
 
                     <i class="search-btn fas fa-search"></i>
 
                 </div>
                 
-                
-
-
-                <!-- <button type="submit" @click.prevent="$emit('search', inputText)" @click="reset">Invio</button> -->
-
             </form>
 
         </div>        
@@ -56,7 +51,7 @@
 
 
 <script>
-
+    
     export default {
 
         name: 'Header',
@@ -66,7 +61,8 @@
             
             return {
                 isActive: true,
-                inputText: ''
+                inputText: '',
+                
 
             }
 
@@ -74,11 +70,7 @@
 
         methods: {
             
-            reset() {
 
-                this.inputText = ''
-                
-            }
 
         }
 
@@ -178,10 +170,15 @@
                 outline: none;
             }
 
-            .active {
+            .active-text {
                 padding: 0;
                 width: 0;
                 opacity: 0;
+                transition: all 0.5s;
+            }
+
+            .not-active {
+                display: none;
             }
 
             input:focus {
