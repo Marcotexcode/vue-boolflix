@@ -1,18 +1,22 @@
 <template>
 
-    <div class="container-fluid">
+    <div class="container">
 
-        <h2>Film</h2>
+        <h2 class="title-film">Film</h2>
 
-        <div class="row justify-content-between p-5">
+        <hr class="separation">
+
+        <div class="container-films">
            
             <BoxFilm v-for="film in films" :key="film.id" :info="film"/>          
 
         </div>
         
-        <h2>Serie</h2>
+        <h2 class="title-serie">Serie</h2>
+
+        <hr class="separation">
         
-        <div class="row justify-content-between p-5">
+        <div class="container-serie">
             
             <BoxSerie v-for="serie in series" :key="serie.id" :info="serie"/>
             
@@ -27,7 +31,6 @@
 
     import BoxFilm from '@/components/BoxFilm.vue';
     import BoxSerie from '@/components/BoxSerie.vue';
-
 
     export default {
 
@@ -49,21 +52,43 @@
 
     }
 
-
 </script>
 
 
 <style scoped lang="scss">
 
     @import '../style/mixins.scss';
+    @import '../style/variabili.scss';
 
-    .container-fluid{
+    .container{
         padding-top: 100px;
-        background-color: rgb(37, 37, 37);
+        background-color: $mainColor;
+        text-align: center;
 
-        h2 {
-            color: white;
+        .title-film, .title-serie {
+            margin: 20px 0px;
+            font-size: 30px;
+            text-transform: uppercase;
+            color: $white;
         }
+
+        .separation {
+            width: 90%;
+            margin: 30px auto 40px;
+            height: 5px;
+            border-radius: 50px;
+            background-color: $white;
+
+        }
+
+        .container-films, .container-serie {
+            width: 90%;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
     }
 
 </style>

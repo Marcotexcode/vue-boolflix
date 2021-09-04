@@ -33,7 +33,7 @@
 
                 </div>
 
-                <input v-on:keyup="$emit('search', inputText)" :class="(isActive === true) ? 'active-text' : 'search-text'" type="text" placeholder="Scegli il film" v-model.trim="inputText">
+                <input v-on:keyup="$emit('search', inputText)" :class="(isActive === true) ? 'active-text' : 'search-text'" type="text" placeholder="Scegli il film" v-model.trim="inputText" onclick="login_submit()">
 
                 <div @click="isActive = !isActive" :class="(isActive === true) ? 'not-active' : 'active'" class="btn">
 
@@ -91,7 +91,7 @@
         align-items: center;
         width: 100%;
         
-        background-color: rgb(20, 20, 20);;
+        background-color: $headerColor;
         padding: 10px 20px;
 
         .logo-menu {
@@ -131,7 +131,7 @@
 
             .btn{
                 margin: 0px 20px;
-                color: white;
+                color: $white;
                 position: absolute;
                 right: 0;
                 z-index: 10;
@@ -142,7 +142,7 @@
             .btn2{
                 cursor: pointer;
                 margin: 0px 10px;
-                color: white;
+                color: $white;
                 left: 0;
                 z-index: 10;
                 font-size: 20px;
@@ -156,17 +156,17 @@
             align-items: center;
 
             button {
-                @include button (black);
+                @include button ($black);
             }
 
             .search-text {
                 display: block;
-                @include input (black);
+                @include input ($black);
                 padding: 10px;
                 border-radius: 20px;
                 transition: all 0.5s;
-                background-color: rgba(0, 0, 0, 0.753);
-                color: white;
+                background-color: $searchColor;
+                color: $white;
                 outline: none;
             }
 
