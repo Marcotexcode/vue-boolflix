@@ -18,7 +18,7 @@
             
             <div class="list-info">
 
-            <li><strong>Titolo </strong></li>
+                <li><strong>Titolo </strong></li>
                 <li>{{info.title == null ? info.name : info.title}}</li>
 
                 <li><strong>Titolo originale</strong></li>

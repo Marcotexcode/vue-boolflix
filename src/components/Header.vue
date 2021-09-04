@@ -90,6 +90,8 @@
         justify-content: space-between;
         align-items: center;
         width: 100%;
+        position: fixed;
+        z-index: 20;
         
         background-color: $headerColor;
         padding: 10px 20px;
